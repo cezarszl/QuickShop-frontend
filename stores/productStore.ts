@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-interface Product {
+export interface Product {
     id: string;
     name: string;
     price: number;
@@ -16,7 +16,8 @@ export const useProductStore = create<ProductState>((set) => ({
     products: [],
     fetchProducts: async () => {
         try {
-            const response = await axios.get('https://quickshopapi-844fd64d6465.herokuapp.com/product');
+            const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+            const response = await axios.get(`${baseUrl}/product`);
             set({ products: response.data })
         } catch (err) {
             console.error('Error fetching products', err);
