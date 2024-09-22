@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
-import Sidebar from "@/components/SideBar";
+import Sidebar from "@/components/sidebar/SideBar";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: "QuickShop App",
@@ -14,11 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={"antialiased font-sans"}>
+    <html lang="en" className={`${geistSans.variable} antialiased`}>
+      <body>
         <div className="flex">
           <Sidebar />
-          <main className="flex-1 p-6 bg-gray-100">{children}</main>
+          <main className="flex-1">{children}</main>
         </div>
       </body>
     </html>
