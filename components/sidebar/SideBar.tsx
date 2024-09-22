@@ -8,7 +8,7 @@ import BottomLinks from "./BottomLinks";
 import SocialLink from "./SocialLink";
 const Sidebar = () => {
   return (
-    <aside className="w-[320px] h-screen bg-white p-6">
+    <aside className="w-[320px] h-screen mb-36 bg-white p-6">
       <Link href="">
         <Image src={logo} alt="QuickShop logo" />
       </Link>
